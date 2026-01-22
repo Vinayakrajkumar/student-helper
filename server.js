@@ -10,7 +10,7 @@ app.post("/submit", (req, res) => {
   res.send("Data received");
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log("Helper running on port " + PORT);
