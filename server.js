@@ -1,17 +1,23 @@
-const express = require("express");
-const cors = require("cors");
+import { fetch } from 'wix-fetch'; //
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+// This function sends data to your Render server
+export async function sendToGoogleSheet(data) {
+    // Replace with your actual Render URL
+    const url = "https://student-helper-bjie.onrender.com/submit"; 
 
-app.post("/submit", (req, res) => {
-  console.log(req.body);
-  res.send("Data received");
-});
+    const options = {
+        method: 'POST', //
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data) //
+    };
 
-const PORT = process.env.PORT;
-
-app.listen(PORT, () => {
-  console.log("Helper running on port " + PORT);
-});
+    const response = await fetch(url, options); //
+    
+    if (response.ok) {
+        return await response.json();
+    } else {
+        throw new Error("Failed to reach Render server");
+    }
+}
