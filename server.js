@@ -27,7 +27,7 @@ app.post('/submit', async (req, res) => {
 
         // 3. Append the data to Google Sheets
         await googleSheets.spreadsheets.values.append({
-            spreadsheetId: "371Ee199389C4A93849Ee35B8A15B7Ca1", // Your Sheet ID
+            spreadsheetId: "https://script.google.com/macros/s/AKfycbw4vzWfCy093cIEOcKSp87FDU4n4dG6-R5nOjJ-TP1YcJffCmCKyGJyUkVrMMH-OAPTSQ/exec", // Your Sheet ID
             range: "Sheet1!A:C", // Change 'Sheet1' if your tab has a different name
             valueInputOption: "USER_ENTERED", //
             resource: {
